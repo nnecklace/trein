@@ -1,0 +1,17 @@
+{:paths ["src" "resources"]
+
+ :deps {org.clojure/clojure   {:mvn/version "1.12.0"}
+        org.clojure/tools.cli {:mvn/version "1.1.230"}
+        org.babashka/http-client {:mvn/version "0.4.22"}
+        metosin/malli         {:mvn/version "0.16.4"}
+        metosin/jsonista      {:mvn/version "0.3.8"}}
+
+ :aliases
+ {:cli   {:main-opts ["-m" "trein.cli.core"]}
+
+  :test  {:extra-paths ["test"]
+          :extra-deps  {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
+          :main-opts   ["-m" "kaocha.runner"]}
+
+  :build {:deps       {io.github.clojure/tools.build {:mvn/version "0.10.5"}}
+          :ns-default build}}}
